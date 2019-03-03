@@ -25,11 +25,12 @@ for val in text_file.read().split(','):
 
 
 def write():
-        for i in range (1,11):
-                m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
-                m.write(register.Instruction.MOVING_SPEED,40)
-                
-                m.write(register.Instruction.GOAL_POSITION, pos[i-1])
+        for list in pos:
+                for i in range (1,11):
+                        m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
+                        m.write(register.Instruction.MOVING_SPEED,40)
+                        
+                        m.write(register.Instruction.GOAL_POSITION, list[i-1])
 
 def read():     
         for i in range (1,11):
@@ -53,6 +54,6 @@ def read():
 #     for val in text_file.read().split(','):
 #     pos.append(int(val))
 #     text_file.close()
-
+code 
 
 

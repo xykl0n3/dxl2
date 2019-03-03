@@ -1,4 +1,4 @@
-text_file = open("motion/walk.txt", "r")
+text_file = open("motion/stand.txt", "r")
 pos= []
 for val in text_file.read().split('\n'):
     inpos=[]
@@ -7,4 +7,8 @@ for val in text_file.read().split('\n'):
     pos.append(inpos)
     text_file.close()
 
-print (pos)
+
+for list in pos:
+    for i in range(1,11):
+            print (list[i-1])
+
