@@ -63,9 +63,9 @@ AX: Dict[Instruction, List[int]] = {
     Instruction.MODEL_NUMBER_H: [1],
     Instruction.MODEL_NUMBER: [1, 0],
     Instruction.TORQUE_ENABLE: [24],
-    Instruction.GOAL_POSITION: [31, 30],
-    Instruction.MOVING_SPEED: [33, 32],
-    Instruction.PRESENT_POSITION: [37, 36],
+    Instruction.GOAL_POSITION: [30, 31],
+    Instruction.MOVING_SPEED: [32, 33],
+    Instruction.PRESENT_POSITION: [36, 37],
 }
 
 MX: Dict[Instruction, List[int]] = {
@@ -73,7 +73,7 @@ MX: Dict[Instruction, List[int]] = {
     Instruction.MODEL_NUMBER_H: [1],
     Instruction.MODEL_NUMBER: [1, 0],
     Instruction.TORQUE_ENABLE: [24],
-    Instruction.GOAL_POSITION: [31, 30],
-    Instruction.MOVING_SPEED: [33, 32],
-    Instruction.PRESENT_POSITION: [37, 36],
+    Instruction.GOAL_POSITION: [30, 31],
+    Instruction.MOVING_SPEED: [32, 33],
+    Instruction.PRESENT_POSITION: [36, 37],
 }

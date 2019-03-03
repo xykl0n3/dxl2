@@ -1,5 +1,4 @@
 import dynamixel_sdk as sdk
-
 from dynamixel_sdk import DXL_LOBYTE, DXL_LOWORD, DXL_HIBYTE, DXL_HIWORD
 
 
@@ -21,3 +20,9 @@ def create2ByteArray(bin_value):
 def create1ByteArray(bin_value):
     byte_array = [DXL_LOBYTE(DXL_LOWORD(bin_value))]
     return byte_array
+
+
+def angleAX(val):
+    agl =  int(512 + (val/0.29))
+    return agl
+    
