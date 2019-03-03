@@ -5,47 +5,54 @@ from dxl2 import register
 
 
 
-conn = dxl2.Connection("/dev/tty.usbserial-FT1SF3Q6")
+conn = dxl2.Connection("/dev/ttyUSB0")
 conn.open_port()
 
-#  m = dxl2.Motor(conn, 4, dxl2.MotorType.AX)
-# print(m.read(register.Instruction.PRESENT_POSITION))
-
-# for i in range(1, 13):
-#     m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
-#     d = dxl2.Motor(conn,i-1,dxl2.MotorType.AX)
-#     m.write(register.Instruction.MOVING_SPEED, 100)
-#     # print(i, m.read(register.Instruction.PRESENT_POSITION))
-    
-#     if i % 3 != 1:
-#         m.write(register.Instruction.GOAL_POSITION, 450)
-#     else:
-#         m.write(register.Instruction.GOAL_POSITION, 512)
-
+# for i in range (1,11):
+#         m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
+#         print(m.read(register.Instruction.PRESENT_POSITION))        
 
 
 ####### gait ######
 
-def stand():
+# def stand():
 
-    text_file = open("stand.txt", "r")
-    pos= []
-    for val in text_file.read().split(','):
-    pos.append(int(val))
-    text_file.close()
-    for i in range (1,13):
-        m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
-        m.write(register.Instruction.GOAL_POSITION, pos)
-        time.sleep(0.5)
+text_file = open("motion/stand.txt", "r")
+pos= []
+for val in text_file.read().split(','):
+        pos.append(int(val))
+        text_file.close()
 
 
-def walk():
+def write():
+        for i in range (1,11):
+                m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
+                m.write(register.Instruction.MOVING_SPEED,40)
+                
+                m.write(register.Instruction.GOAL_POSITION, pos[i-1])
 
-    text_file = open("walk.txt", "r")
-    pos= []
-    for val in text_file.read().split(','):
-    pos.append(int(val))
-    text_file.close()
+def read():     
+        for i in range (1,11):
+                m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
+                print(m.read(register.Instruction.PRESENT_POSITION))
+        
+# for i in range (7,9):
+#         m = dxl2.Motor(conn, i, dxl2.MotorType.AX)
+#        # print(m.read(register.Instruction.PRESENT_POSITION))
+#         m.write(register.Instruction.MOVING_SPEED,40)
+#         m.write(register.Instruction.GOAL_POSITION,512)
+       
+#m.write(register.Instruction.TORQUE_ENABLE,0)
+
+
+
+# def walk():
+
+#     text_file = open("walk.txt", "r")
+#     pos= []
+#     for val in text_file.read().split(','):
+#     pos.append(int(val))
+#     text_file.close()
 
 
 
