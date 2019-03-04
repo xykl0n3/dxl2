@@ -27,7 +27,7 @@ def angleAX(val):
     if(agl>1023):
         return 1023
     elif(agl<0):
-        return 0)
+        return 0
     else:
         return agl
     
