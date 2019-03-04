@@ -1,2 +1,0 @@
-git+https://github.com/ROBOTIS-GIT/DynamixelSDK.git/#subdirectory=python
-.
