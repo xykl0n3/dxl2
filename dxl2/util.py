@@ -24,5 +24,10 @@ def create1ByteArray(bin_value):
 
 def angleAX(val):
     agl =  int(512 + (val/0.29))
-    return agl
+    if(agl>1023):
+        return 1023
+    elif(agl<0):
+        return 0)
+    else:
+        return agl
     
